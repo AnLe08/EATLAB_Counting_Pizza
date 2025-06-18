@@ -92,12 +92,12 @@ docker compose up --build
 This process might take some time on the first run as Docker downloads base images and installs all necessary dependencies.
 ## Note that: Because I don't have a GUI (crashes when running, so I did not put it in), I run docker compose without a GUI, and if you want to see a video on how the system works, please take a few seconds to uncomment lines that have cv2.inshow, cv2.namedWindow, cv2.Resize.
 ## The videos I changed the name:
-1461_CH01_20250607193711_203711 -> CH01
-1462_CH03_20250607192844_202844 -> CH03
-1462_CH04_20250607210159_211703 -> CH04_1
-1464_CH02_20250607180000_190000 -> CH02_1
-1465_CH02_20250607170555_172408 -> CH02_2
-1467_CH04_20250607180000_190000 -> CH04_2
+* 1461_CH01_20250607193711_203711 -> CH01
+* 1462_CH03_20250607192844_202844 -> CH03
+* 1462_CH04_20250607210159_211703 -> CH04_1
+* 1464_CH02_20250607180000_190000 -> CH02_1
+* 1465_CH02_20250607170555_172408 -> CH02_2
+* 1467_CH04_20250607180000_190000 -> CH04_2
 
 ## Configuration
 
