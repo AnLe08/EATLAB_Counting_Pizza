@@ -1,0 +1,19 @@
+version: '3.8' 
+
+services:
+  pizza-counter: # name service
+    build: .     # build image from Dockerfile 
+    volumes:
+      # Ánh xạ thư mục data để container có thể đọc các file video đầu vào
+      - ./data:/app/data
+      # Ánh xạ thư mục weights để container có thể truy cập các trọng số mô hình
+      - ./weights:/app/weights
+      # Ánh xạ Count_Pizza.py và các file gốc khác để container có thể chạy
+      - ./Count_Pizza.py:/app/Count_Pizza.py
+      - ./yolov8n.pt:/app/yolov8n.pt
+      - ./output_videos:/app/output_videos
+      
+    # Add parameter
+    command: python Count_Pizza.py --video_path data/CH01.mp4 --model weights/best_yolov8.pt --conf 0.5 --classes Pizza
+
+    restart: "no" # not automatic restart container 
