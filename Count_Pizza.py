@@ -11,15 +11,14 @@ def detect_pizzas_in_video(video_path, model_name='yolov8n.pt', confidence_thres
     try:
         model = YOLO(model_name)
     except Exception as e:
-        print(f"Lỗi khi tải mô hình '{model_name}': {e}")
-        print("Đảm bảo bạn có kết nối internet để tải mô hình lần đầu hoặc đường dẫn mô hình của bạn là chính xác.")
+        print(f"Error when download '{model_name}': {e}")
         return
 
     # Video
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():
-        print(f"Lỗi: Không thể mở tệp video tại {video_path}")
+        print(f"Can not open {video_path}")
         return
 
     frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -36,7 +35,7 @@ def detect_pizzas_in_video(video_path, model_name='yolov8n.pt', confidence_thres
     # cv2.resizeWindow("Pizza Sales Counter", frame_width, frame_height)
 
     #### Use VideoWriter because using docker ####
-    output_dir = Path("output_videos") # <-- Đường dẫn trong container
+    output_dir = Path("output_videos") # 
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # output file
@@ -157,11 +156,11 @@ def detect_pizzas_in_video(video_path, model_name='yolov8n.pt', confidence_thres
         
         # Total pizza
         cv2.putText(frame, f"Total Pizzas: {pizza_count}", (20, 50),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2) # Màu đỏ
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2) 
         
         # Drawing region count
         if use_region_counting:
-            cv2.polylines(frame, [current_counting_region_points_for_drawing], isClosed=True, color=(255, 0, 0), thickness=2) # Màu xanh dương
+            cv2.polylines(frame, [current_counting_region_points_for_drawing], isClosed=True, color=(255, 0, 0), thickness=2) 
             cv2.putText(frame, "Counting Region", (current_counting_region_points[0][0], current_counting_region_points[0][1] - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 1)
             
@@ -189,7 +188,7 @@ def detect_pizzas_in_video(video_path, model_name='yolov8n.pt', confidence_thres
     cap.release()
     out.release() # VideoWriter
     # cv2.destroyAllWindows()
-    print(f"Tổng số pizza đã đếm: {pizza_count}")
+    print(f"Total Pizzas: {pizza_count}")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Pizza Sales Counting System using YOLOv8 Object Detection.")
