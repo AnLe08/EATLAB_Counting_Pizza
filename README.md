@@ -1,7 +1,3 @@
-Để tránh việc bạn phải copy-paste thủ công, tôi có thể xuất toàn bộ nội dung của file `README.md` đã dịch sang tiếng Anh dưới dạng một khối văn bản mà bạn có thể dễ dàng copy và paste vào một file `.txt` hoặc `.md` của riêng bạn.
-
-Dưới đây là toàn bộ nội dung file `README.md` bằng tiếng Anh mà bạn có thể sử dụng:
-
 ```markdown
 # Automated Pizza Counting System using YOLOv8 and Docker
 
