@@ -49,7 +49,6 @@ your-pizza-counting-system/
 ├── Dockerfile               # Defines the Docker image environment
 ├── docker-compose.yml       # Docker Compose service configuration
 ├── requirements.txt         # List of required Python libraries
-└── README.md                # This instruction file
 ```
 
 ## Setup & Run
