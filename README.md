@@ -1,4 +1,4 @@
-```markdown
+
 # Automated Pizza Counting System using YOLOv8 and Docker
 
 This is a smart monitoring system developed to automatically count the number of pizzas sold from video footage. This project utilizes the YOLOv8 model for object detection and is containerized with Docker Compose for easy deployment.
