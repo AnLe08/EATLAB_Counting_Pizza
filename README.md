@@ -130,7 +130,3 @@ Example: If you process `data/CH01.mp4`, the result will be `output_videos/CH01_
 * **`qt.qpa.xcb: could not connect to display`**: This error indicates the application is trying to display a GUI in a headless environment. This project is configured to run in "headless" mode by using `opencv-python-headless` and saving results to a file. Make sure you have replaced `opencv-python` with `opencv-python-headless` in your `requirements.txt` (or installed it directly in the Dockerfile) and removed `cv2.imshow()` lines from `Count_Pizza.py`.
 * **`Error: Could not create video writer for ...`**: Verify that the `output_videos` directory exists on your host machine and is correctly volume-mapped in `docker-compose.yml`. Ensure the output video filename is valid.
 * **Video codec-related errors**: Ensure `ffmpeg` is installed in your `Dockerfile`. If you still encounter errors, try changing the codec in `Count_Pizza.py` (e.g., `fourcc = cv2.VideoWriter_fourcc(*'XVID')` and save the file as `.avi`).
-
----
-```
-
