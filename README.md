@@ -60,8 +60,8 @@ Follow the steps below to set up and run the system.
 First, clone this repository to your local machine:
 
 ```bash
-git clone <your-repository-address>
-cd your-pizza-counting-system
+git clone /AnLe08/EATLAB_Counting_Pizza
+cd EATLAB_Counting_Pizza
 ```
 
 ### 2. Prepare Data and Models
@@ -80,7 +80,7 @@ cd your-pizza-counting-system
 
 ### 3. Build and Run with Docker Compose
 
-Navigate to the root directory of your project (`your-pizza-counting-system/`) in your Terminal or Command Prompt and run the following command:
+Navigate to the root directory of your project (`EATLAB_Counting_Pizza/`) in your Terminal or Command Prompt and run the following command:
 
 ```bash
 docker compose up --build
@@ -90,6 +90,14 @@ docker compose up --build
 * `--build`: Forces Docker to rebuild the image from your `Dockerfile`. This is crucial to ensure all changes in your code or dependencies are applied.
 
 This process might take some time on the first run as Docker downloads base images and installs all necessary dependencies.
+## Note that: Because I don't have a GUI (crashes when running, so I did not put it in), I run docker compose without a GUI, and if you want to see a video on how the system works, please take a few seconds to uncomment lines that have cv2.inshow, cv2.namedWindow, cv2.Resize.
+## The videos I changed the name:
+1461_CH01_20250607193711_203711 -> CH01
+1462_CH03_20250607192844_202844 -> CH03
+1462_CH04_20250607210159_211703 -> CH04_1
+1464_CH02_20250607180000_190000 -> CH02_1
+1465_CH02_20250607170555_172408 -> CH02_2
+1467_CH04_20250607180000_190000 -> CH04_2
 
 ## Configuration
 
@@ -120,19 +128,9 @@ Example: If you process `data/CH01.mp4`, the result will be `output_videos/CH01_
 * **`docker daemon is not running`**: Ensure Docker Desktop is running on your machine.
 * **Python dependency installation errors (`pip install` in Dockerfile)**: Double-check your `requirements.txt` and `Dockerfile` to ensure compatible library versions and correct installation commands.
 * **`qt.qpa.xcb: could not connect to display`**: This error indicates the application is trying to display a GUI in a headless environment. This project is configured to run in "headless" mode by using `opencv-python-headless` and saving results to a file. Make sure you have replaced `opencv-python` with `opencv-python-headless` in your `requirements.txt` (or installed it directly in the Dockerfile) and removed `cv2.imshow()` lines from `Count_Pizza.py`.
-* **`UnboundLocalError: local variable 'frame_count' referenced before assignment`**: Ensure the `frame_count` variable is initialized to 0 before the video processing loop (`frame_count = 0`).
 * **`Error: Could not create video writer for ...`**: Verify that the `output_videos` directory exists on your host machine and is correctly volume-mapped in `docker-compose.yml`. Ensure the output video filename is valid.
 * **Video codec-related errors**: Ensure `ffmpeg` is installed in your `Dockerfile`. If you still encounter errors, try changing the codec in `Count_Pizza.py` (e.g., `fourcc = cv2.VideoWriter_fourcc(*'XVID')` and save the file as `.avi`).
 
 ---
 ```
 
-**Cách sử dụng:**
-
-1.  **Tạo file:** Mở một trình soạn thảo văn bản (ví dụ: Notepad trên Windows, TextEdit trên macOS, VS Code, Sublime Text, v.v.).
-2.  **Copy & Paste:** Sao chép toàn bộ nội dung khối code trên và dán vào trình soạn thảo văn bản.
-3.  **Lưu file:**
-    * Để lưu dưới dạng file Markdown, chọn "Save As..." (Lưu dưới dạng...) và đặt tên file là `README.md`.
-    * Để lưu dưới dạng file văn bản thuần túy, chọn "Save As..." và đặt tên file là `README.txt`.
-
-File này sẽ chứa tất cả các hướng dẫn và thông tin mà bạn cần để chia sẻ dự án của mình trên GitHub hoặc với bất kỳ ai khác.
